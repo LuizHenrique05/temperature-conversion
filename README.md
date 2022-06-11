@@ -13,7 +13,7 @@ $ ```k3d cluster create <mycluster> --servers 3 --agents 3 -p "30000:30000"```
 
 > apply deployment.yaml
 
-$ ```cd src/k8s```
+$ ```cd k8s```
 
 $ ```kubectl apply -f deployment.yaml```
   
