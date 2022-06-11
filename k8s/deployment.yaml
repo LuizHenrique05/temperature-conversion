@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: temperatureconversion
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: temperatureconversion
+  template:
+    metadata:
+      labels:
+        app: temperatureconversion
+    spec:
+      containers:
+      - name: temperatureconversion
+        image: luizh520/temperature-conversion:v2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: temperature-conversion
+spec:
+  selector:
+    app: temperatureconversion
+  ports:
+  - port: 80
+    targetPort: 8080
+    nodePort: 30000
+  type: NodePort
